@@ -2,19 +2,28 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListaNavesComponent } from './lista-naves/lista-naves.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DetalleNaveComponent } from './detalle-nave/detalle-nave.component';
+import { ServicioNavesService } from './servicio-naves.service';
+import { RouterModule } from '@angular/router';
 
 
 
 @NgModule({
   declarations: [
-    ListaNavesComponent
+    ListaNavesComponent,
+    DetalleNaveComponent
   ],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   exports: [
-    ListaNavesComponent
+    ListaNavesComponent,
+    DetalleNaveComponent
+  ],
+  providers: [
+    ServicioNavesService
   ]
 })
 export class NavesModule { }

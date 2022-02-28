@@ -39,6 +39,7 @@ export class ServicioNavesService {
   private listaNaves$: Subject<Nave[]>;
   
   constructor(private http:HttpClient) {
+    console.log("carga lista en servicio");
     this.listaNaves$ = new Subject(); 
     this.obtenerListaNaves(1);
   }
