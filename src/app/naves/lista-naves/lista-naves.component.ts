@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Nave, ServicioNavesService } from '../servicio-naves.service';
 
 @Component({
@@ -8,19 +9,30 @@ import { Nave, ServicioNavesService } from '../servicio-naves.service';
 })
 export class ListaNavesComponent implements OnInit {
 
-  listaNaves:Nave[]=[];
+  get listaNaves():Nave[] {
+    return this.servicioNaves.listaNaves;
+  }
+  //listaNaves:Nave[]=[];
 
-  constructor(private servicioNaves:ServicioNavesService) { 
-    console.log("constructor lista");
+  constructor(private servicioNaves:ServicioNavesService, private router:Router) { 
+    //console.log("constructor lista");
    }
 
   ngOnInit(): void {
-    console.log("iniciando lista");
-    console.log(this.listaNaves);
+    //console.log("iniciando lista");
+   
+    
+    /*
     this.servicioNaves.getListaNaves$().subscribe(listaNaves => {
+      console.log("Holiwi observable");
       this.listaNaves = listaNaves;
-    });
+    }); */
+    //console.log("Lista Naves Publica", this.servicioNaves.listaNavesPublica);
 
   }  
+
+  detalleNave(nombreNave:string) {
+    this.router.navigate(["/nave/"+nombreNave]);    
+  }
 
 }

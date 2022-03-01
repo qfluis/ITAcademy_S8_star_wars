@@ -1,2 +1,14 @@
-<img [src]="'https://starwars-visualguide.com/assets/img/starships/'+ idNave +'.jpg'" alt="">
-<a routerLink="">volver</a>
+<h2>{{ nave.name }} <small>{{ nave.model}}</small></h2>
+<div><img [src]="'https://starwars-visualguide.com/assets/img/starships/'+ numeroNave +'.jpg'" alt=""></div>
+<div>
+    <dl>
+        <dt>Manufacturer</dt>
+        <dd>{{nave.manufacturer}}</dd>
+    
+        <dt>Cost in credits</dt>
+        <dd>{{nave.cost_in_credits}}</dd>
+
+    </dl>
+</div>
+
+<button routerLink="" class="btn btn-dark me-2">Volver</button>

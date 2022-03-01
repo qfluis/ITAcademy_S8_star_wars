@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ServicioNavesService } from '../servicio-naves.service';
+import { Nave, ServicioNavesService } from '../servicio-naves.service';
 
 @Component({
   selector: 'app-detalle-nave',
@@ -9,14 +9,29 @@ import { ServicioNavesService } from '../servicio-naves.service';
 })
 export class DetalleNaveComponent implements OnInit {
 
-  idNave:string = "";
+  nombreNave:string = "";
+  nave:Nave | any = "";
+  numeroNave:string = '';
 
   constructor(private rutaActiva: ActivatedRoute, private servicioNaves:ServicioNavesService) { }
 
   ngOnInit(): void {
-    this.idNave = this.rutaActiva.snapshot.params["id"];
-    //console.log(this.servicioNaves.)
-    //console.log(this.rutaActiva.snapshot.params["id"]);
+    this.obtenerDatosNave();
   }
+
+  obtenerDatosNave(){
+    this.nombreNave = this.rutaActiva.snapshot.params["id"];
+
+    // obtener Nave
+    const result = this.servicioNaves.listaNaves.filter((nave)=>{
+      return nave.name === this.nombreNave;
+    });
+    this.nave = result[0];
+
+    // obtener numero (para foto)
+    const urlSplit = this.nave.url.split("/");
+    this.numeroNave = urlSplit[urlSplit.length-2];
+  }
+
 
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+//import { Observable, Subject } from 'rxjs';
 
 export interface ListaNaves {
   count:    number;
@@ -35,29 +35,28 @@ export interface Nave {
 })
 export class ServicioNavesService {
 
-  private listaNaves:Nave[] =[];
-  private listaNaves$: Subject<Nave[]>;
+  public listaNaves:Nave[] =[];
+  //private listaNaves$: Subject<Nave[]>;
+  private pagina:number;
   
   constructor(private http:HttpClient) {
-    console.log("carga lista en servicio");
-    this.listaNaves$ = new Subject(); 
-    this.obtenerListaNaves(1);
+    this.pagina = 1
+    //this.listaNaves$ = new Subject(); 
+    this.obtenerListaNaves(this.pagina);
   }
 
+  /*
   getListaNaves$(): Observable<Nave[]> {
     return this.listaNaves$.asObservable();
-  }
-  
-
+  }*/  
 
   obtenerListaNaves(page:number){
     this.http.get<ListaNaves>(`https://swapi.dev/api/starships/?page=${page}`)
       .subscribe((resp:ListaNaves)=> {
-        this.listaNaves = resp.results;
-        this.listaNaves$.next(this.listaNaves)          
-      });
-
-    
+        this.listaNaves = resp.results;      
+        console.log(this.listaNaves);  
+        //this.listaNaves$.next(this.listaNaves);          
+      });    
   }
 
 
