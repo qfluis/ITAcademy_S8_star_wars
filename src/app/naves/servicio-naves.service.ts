@@ -75,6 +75,4 @@ export class ServicioNavesService {
       this.allShipsCharged = true;
     }
   }
-
-
 }
