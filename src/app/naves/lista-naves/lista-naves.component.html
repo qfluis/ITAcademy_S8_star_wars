@@ -3,4 +3,4 @@
                 {{nave.name.toUpperCase()}}<br><small>{{nave.model}} </small>
         </div>
 </div>
-<button class="btn btn-dark" (click)="nextPage()">Cargar más :-)</button>
+<button *ngIf="!allShipsCharged" class="btn btn-dark mt-3" (click)="nextPage()">View more</button>

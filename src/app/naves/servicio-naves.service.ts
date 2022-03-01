@@ -41,6 +41,7 @@ export class ServicioNavesService {
   private resultadosPagina:number = 10;
   private paginas:number = 0;
   public totalNaves:number = 0;
+  public allShipsCharged:boolean = false;
   
   constructor(private http:HttpClient) {
     this.pagina = 1
@@ -66,9 +67,12 @@ export class ServicioNavesService {
   }
 
   nextPage() {
-    if(this.pagina < this.paginas) {
+    if(!this.allShipsCharged) {
       this.pagina++;
       this.obtenerListaNaves(this.pagina);
+    } 
+    if (this.pagina > this.paginas){
+      this.allShipsCharged = true;
     }
   }
 

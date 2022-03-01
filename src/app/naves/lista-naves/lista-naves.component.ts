@@ -12,11 +12,12 @@ export class ListaNavesComponent implements OnInit {
   get listaNaves():Nave[] {
     return this.servicioNaves.listaNaves;
   }
-  //listaNaves:Nave[]=[];
+  get allShipsCharged():boolean {
+    return this.servicioNaves.allShipsCharged;
+  }
+  
 
-  constructor(private servicioNaves:ServicioNavesService, private router:Router) { 
-    //console.log("constructor lista");
-   }
+  constructor(private servicioNaves:ServicioNavesService, private router:Router) { }
 
   ngOnInit(): void {
     //console.log("iniciando lista");
@@ -27,6 +28,7 @@ export class ListaNavesComponent implements OnInit {
     }); */
     //console.log("Lista Naves Publica", this.servicioNaves.listaNavesPublica);
 
+    /*
     const options = {
       root: document.querySelector('#main-container'),
       rootMargin: '10px 0px',
@@ -38,6 +40,7 @@ export class ListaNavesComponent implements OnInit {
     let target = listaItems[0];
     console.log(listaItems);
     observer.observe(target);
+    */
  
   }  
 
