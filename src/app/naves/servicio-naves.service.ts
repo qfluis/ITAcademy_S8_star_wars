@@ -38,6 +38,9 @@ export class ServicioNavesService {
   public listaNaves:Nave[] =[];
   //private listaNaves$: Subject<Nave[]>;
   private pagina:number;
+  private resultadosPagina:number = 10;
+  private paginas:number = 0;
+  public totalNaves:number = 0;
   
   constructor(private http:HttpClient) {
     this.pagina = 1
@@ -53,10 +56,20 @@ export class ServicioNavesService {
   obtenerListaNaves(page:number){
     this.http.get<ListaNaves>(`https://swapi.dev/api/starships/?page=${page}`)
       .subscribe((resp:ListaNaves)=> {
-        this.listaNaves = resp.results;      
-        console.log(this.listaNaves);  
+        this.listaNaves = this.listaNaves.concat(resp.results);
+        this.paginas = resp.count / this.resultadosPagina   
+        this.totalNaves = resp.count;   
+        console.log(this.paginas);
+        console.log(this.listaNaves);
         //this.listaNaves$.next(this.listaNaves);          
       });    
+  }
+
+  nextPage() {
+    if(this.pagina < this.paginas) {
+      this.pagina++;
+      this.obtenerListaNaves(this.pagina);
+    }
   }
 
 

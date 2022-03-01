@@ -21,7 +21,6 @@ export class DetalleNaveComponent implements OnInit {
 
   obtenerDatosNave(){
     this.nombreNave = this.rutaActiva.snapshot.params["id"];
-
     // obtener Nave
     const result = this.servicioNaves.listaNaves.filter((nave)=>{
       return nave.name === this.nombreNave;
@@ -32,6 +31,4 @@ export class DetalleNaveComponent implements OnInit {
     const urlSplit = this.nave.url.split("/");
     this.numeroNave = urlSplit[urlSplit.length-2];
   }
-
-
 }

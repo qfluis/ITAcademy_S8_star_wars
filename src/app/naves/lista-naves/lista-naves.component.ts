@@ -20,8 +20,6 @@ export class ListaNavesComponent implements OnInit {
 
   ngOnInit(): void {
     //console.log("iniciando lista");
-   
-    
     /*
     this.servicioNaves.getListaNaves$().subscribe(listaNaves => {
       console.log("Holiwi observable");
@@ -29,10 +27,32 @@ export class ListaNavesComponent implements OnInit {
     }); */
     //console.log("Lista Naves Publica", this.servicioNaves.listaNavesPublica);
 
+    const options = {
+      root: document.querySelector('#main-container'),
+      rootMargin: '10px 0px',
+      threshold: 1.0
+    }
+    const observer = new IntersectionObserver (this.callbackObserver, options); 
+
+    let listaItems = document.getElementsByClassName("nave");
+    let target = listaItems[0];
+    console.log(listaItems);
+    observer.observe(target);
+ 
   }  
 
   detalleNave(nombreNave:string) {
     this.router.navigate(["/nave/"+nombreNave]);    
   }
+
+  nextPage(){
+    this.servicioNaves.nextPage();
+  }
+
+  callbackObserver () {
+    console.log("holiwi");
+  }
+
+  
 
 }
