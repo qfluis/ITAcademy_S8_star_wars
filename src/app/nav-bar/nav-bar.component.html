@@ -1,0 +1,11 @@
+<header class="header">
+    <div><img class="header__img" src="/assets/logo_sw_white.png" height="100px" alt=""></div>
+    <div class="header__login-buttons">
+        <button>LOG IN</button>
+        <button>SIGN UP</button>
+    </div>
+    <div class="header__page-buttons">
+        <button routerLink="" class="header__page__button--active" (click)="toggleActive()" #home >HOME</button>
+        <button routerLink="naves" (click)="toggleActive()" #ships >STARSHIPS</button>
+    </div>
+</header>
