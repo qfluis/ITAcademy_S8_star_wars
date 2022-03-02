@@ -7,23 +7,26 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  @ViewChild("home") home!:ElementRef<HTMLInputElement>;
-  @ViewChild("ships") ships!:ElementRef<HTMLInputElement>;
+  // no me acordaba de routerLinkActive...
+  //@ViewChild("home") home!:ElementRef<HTMLInputElement>;
+  //@ViewChild("ships") ships!:ElementRef<HTMLInputElement>;
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
-  toggleActive( ) {
-    if (!this.home.nativeElement.classList.contains("header__page__button--active")){
-      //this.home.nativeElement.classList.toggle("header__page__button--active");
-      this.home.nativeElement.classList.add("header__page__button--active");
-      this.ships.nativeElement.classList.remove("header__page__button--active");
-    } else {
-      this.home.nativeElement.classList.remove("header__page__button--active");
-      this.ships.nativeElement.classList.add("header__page__button--active");
-    }
+  /*
+  goToHome(){
+    this.home.nativeElement.classList.add("header__page__button--active");
+    this.ships.nativeElement.classList.remove("header__page__button--active");
   }
+
+  goToShips(){
+    this.home.nativeElement.classList.remove("header__page__button--active");
+    this.ships.nativeElement.classList.add("header__page__button--active");
+  }
+  */
 
 }

@@ -5,7 +5,7 @@
         <button>SIGN UP</button>
     </div>
     <div class="header__page-buttons">
-        <button routerLink="" class="header__page__button--active" (click)="toggleActive()" #home >HOME</button>
-        <button routerLink="naves" (click)="toggleActive()" #ships >STARSHIPS</button>
+        <button routerLink="" routerLinkActive="header__page__button--active" [routerLinkActiveOptions]="{ exact: true }">HOME</button>
+        <button routerLink="naves" routerLinkActive="header__page__button--active">STARSHIPS</button>
     </div>
 </header>
