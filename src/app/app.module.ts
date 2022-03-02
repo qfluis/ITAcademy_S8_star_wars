@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavesModule } from './naves/naves.module';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomePageComponent } from './home-page/home-page.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NavesModule
+    NavesModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]

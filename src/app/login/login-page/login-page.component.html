@@ -1,0 +1,21 @@
+<div class="background" (click)="exit()">
+    <div class="content">
+        <img src="assets/logo_sw_white.png" alt="">
+        <div class="close" routerLink="">[close window]</div>
+        <h2 *ngIf="loginMode">Login</h2>
+        <h2 *ngIf="!loginMode">Signup</h2>
+        <form>
+            <div><label for="">Email:<br><input type="text"></label><br></div>
+            <br>
+            <div><label for="">Password:<br><input type="text"></label><br></div>
+            <button class="button">Sign in</button>
+        </form>
+        <div *ngIf="loginMode" class="new-user">
+            New to Star Wars Ships? <a (click)="changeLoginMode()">Create an acount</a>
+        </div>
+        <div *ngIf="!loginMode" class="new-user">
+            Do you have an account? <a (click)="changeLoginMode()">Login</a>
+        </div>
+    </div>
+</div>
+
