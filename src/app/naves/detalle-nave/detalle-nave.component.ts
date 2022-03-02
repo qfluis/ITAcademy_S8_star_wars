@@ -31,4 +31,8 @@ export class DetalleNaveComponent implements OnInit {
     const urlSplit = this.nave.url.split("/");
     this.numeroNave = urlSplit[urlSplit.length-2];
   }
+
+  imgError(image:any) {
+    image.target.src = "./assets/img404.jpg";
+}
 }

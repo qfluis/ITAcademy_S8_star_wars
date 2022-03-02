@@ -1,14 +1,18 @@
 <h2>{{ nave.name }} <small>&lt;{{ nave.model }}&gt;</small></h2>
-<div><img [src]="'https://starwars-visualguide.com/assets/img/starships/'+ numeroNave +'.jpg'" alt="starship"></div>
-<div>
-    <dl>
-        <dt>Manufacturer</dt>
-        <dd>{{nave.manufacturer}}</dd>
+<div class="content">
     
-        <dt>Cost in credits</dt>
-        <dd>{{nave.cost_in_credits}}</dd>
+    <img class="content__img" [src]="'https://starwars-visualguide.com/assets/img/starships/'+ numeroNave +'.jpg'" alt="starship" (error)="imgError( $event )">
+    
+    <div class="content__specs">
+        <dl>
+            <dt>Manufacturer</dt>
+            <dd>{{nave.manufacturer}}</dd>
+        
+            <dt>Cost in credits</dt>
+            <dd>{{nave.cost_in_credits}}</dd>
 
-    </dl>
+        </dl>
+    </div>
 </div>
 
-<button routerLink="" class="btn btn-dark me-2">Volver</button>
+<button routerLink="" class="btn btn-dark me-2">Return to Starships</button>

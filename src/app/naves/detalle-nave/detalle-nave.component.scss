@@ -1,7 +1,40 @@
-img {
-    min-width:600px;
-    min-height: 400px;
+h2{
+    background-color: rgb(56, 56, 56);
+    width: fit-content;
+    margin:0 auto 10px auto;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
 }
 small {
     font-size: 0.5em;
+}
+
+.content {
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content__img{
+    display: block;
+    flex-grow: 1;
+    flex-basis: 400px;
+    width:100%
+}
+.content__specs{
+    flex-grow: 1;
+    flex-basis:150px;
+
+    background-color: rgb(56, 56, 56);
+}
+
+.content div {
+    flex-grow: 1;
+    padding:10px;
+}
+
+button {
+    display: block;
+    margin:10px auto 10px auto;
 }

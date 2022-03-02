@@ -1,6 +1,6 @@
-<div id="main-container">
-        <div (click)="detalleNave( nave.name )" class="nave" *ngFor="let nave of listaNaves"  >
+<div class="lista">
+        <div (click)="detalleNave( nave.name )" class="lista__nave" *ngFor="let nave of listaNaves"  >
                 {{nave.name.toUpperCase()}}<br><small>{{nave.model}} </small>
         </div>
 </div>
-<button *ngIf="!allShipsCharged" class="btn btn-dark mt-3" (click)="nextPage()">View more</button>
+<button *ngIf="!allShipsCharged" class="more__button" (click)="nextPage()">View more</button>

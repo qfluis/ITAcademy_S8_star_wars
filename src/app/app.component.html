@@ -1,19 +1,16 @@
-<header id="container">
-    <div class="row d-flex justify-content-end">
-        <div>
-            <!--<img class="position-absolute top-0 start-50 translate-middle-x" src="/assets/logo_sw_white.png" height="100px" alt="">-->
-            <img src="/assets/logo_sw_white.png" height="100px" alt="">
-        </div>   
-        <div><button class="btn btn-dark me-2">LOG IN</button><button class="btn btn-dark">SIGN UP</button></div>
+<main>
+<header class="header">
+    <div><img class="header__img" src="/assets/logo_sw_white.png" height="100px" alt=""></div>
+    <div class="header__login-buttons">
+        <button>LOG IN</button>
+        <button>SIGN UP</button>
     </div>
-    <div class="row mt-3">
-        <div><button class="btn btn-dark me-2">HOME</button><button class="btn btn-dark me-1">STARSHIPS</button></div>
-    </div>
+    <div class="header__page-buttons"><button>HOME</button><button class="header__page__button--active" >STARSHIPS</button></div>
 </header>
-<div class="content mt-3">
-<!--<app-lista-naves></app-lista-naves>-->
+<div>
 <router-outlet></router-outlet>
 
 
 
 </div>
+</main>
