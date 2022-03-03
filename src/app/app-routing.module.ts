@@ -4,11 +4,12 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { DetalleNaveComponent } from './naves/detalle-nave/detalle-nave.component';
 import { ListaNavesComponent } from './naves/lista-naves/lista-naves.component';
 import { LoginPageComponent } from './login/login-page/login-page.component';
+import { AuthGuardService } from './auth-guard.service';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent, pathMatch:'full'},
-  {path: 'naves', component:ListaNavesComponent},
-  {path: 'nave/:id', component: DetalleNaveComponent},
+  {path: 'naves',canActivate:[AuthGuardService], component:ListaNavesComponent},
+  {path: 'nave/:id',canActivate:[AuthGuardService], component: DetalleNaveComponent},
   {path: 'login-page', component: LoginPageComponent},
   {path:'**', redirectTo: ''}
 

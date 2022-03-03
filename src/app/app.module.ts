@@ -7,6 +7,8 @@ import { NavesModule } from './naves/naves.module';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginModule } from './login/login.module';
+import { LoginService } from './login/login.service';
+import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,7 @@ import { LoginModule } from './login/login.module';
     NavesModule,
     LoginModule
   ],
-  providers: [],
+  providers: [LoginService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

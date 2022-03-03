@@ -1,6 +1,7 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { __values } from 'tslib';
 import { LoginService } from '../login.service';
 
@@ -15,7 +16,11 @@ export class LoginPageComponent implements OnInit {
   loginMode;
   @ViewChild('feedback') txtFeedback!:ElementRef<HTMLDivElement>;
 
-  constructor(private _builder:FormBuilder, private loginService:LoginService) {
+  constructor(
+    private _builder:FormBuilder, 
+    private loginService:LoginService,
+    private route:Router
+  ) {
     this.loginForm = this._builder.group({
       userName: ['', Validators.compose([Validators.required, Validators.email])],
       userPass: ['', Validators.compose([Validators.required, Validators.minLength(8)])]
@@ -43,6 +48,7 @@ export class LoginPageComponent implements OnInit {
     this.loginForm.reset();
     this.txtFeedback.nativeElement.innerHTML = "Usuario creado con éxito, chequea tu email para confirmarlo.<br> Ya puedes hacer login."
     this.txtFeedback.nativeElement.classList.add("feedback--ok");
+    this.txtFeedback.nativeElement.classList.remove("feedback--ko");
     this.loginMode = true;
   }
 
@@ -52,6 +58,7 @@ export class LoginPageComponent implements OnInit {
       this.txtFeedback.nativeElement.innerHTML = "Usuario logeado correctamente";
       this.txtFeedback.nativeElement.classList.add("feedback--ok");
       this.txtFeedback.nativeElement.classList.remove("feedback--ko");
+      this.route.navigate(['']);
     } else {
       this.txtFeedback.nativeElement.innerHTML = "Usuario y/o contraseña incorrectos";
       this.txtFeedback.nativeElement.classList.add("feedback--ko");

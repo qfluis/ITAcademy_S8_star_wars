@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { LoginService } from '../login/login.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -11,10 +12,17 @@ export class NavBarComponent implements OnInit {
   //@ViewChild("home") home!:ElementRef<HTMLInputElement>;
   //@ViewChild("ships") ships!:ElementRef<HTMLInputElement>;
 
-  constructor() { }
+  constructor(private loginService:LoginService) { }
 
   ngOnInit(): void {
 
+  }
+
+  get user() {
+    return this.loginService.userLoged;
+  }
+  get logedIn() {
+    return this.loginService.userLogedIn;
   }
 
   /*
