@@ -14,5 +14,17 @@
         </dl>
     </div>
 </div>
+<h2>Pilots</h2>
+<div class="content">
+    <div class="no-pilots" *ngIf="!(pilotos.length > 0)"> This ship has no known pilots</div>
+    <div *ngFor="let piloto of arrayPilotos">
+        <div class="pilot-card">        
+            <img class="content__img" [src]="'https://starwars-visualguide.com/assets/img/characters/'+ piloto.numImg +'.jpg'" alt="character" (error)="imgErrorCh( $event )">
+            <h3>{{ piloto.name }}</h3>
+        </div>
+    
+    
+    </div>
+</div>
 
 <button routerLink="/naves">Return to Starships</button>

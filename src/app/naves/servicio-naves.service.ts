@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 //import { Observable, Subject } from 'rxjs';
 
 export interface ListaNaves {
@@ -28,6 +29,26 @@ export interface Nave {
   created:                Date;
   edited:                 Date;
   url:                    string;
+}
+
+export interface Pilot {
+  name:       string;
+  height:     string;
+  mass:       string;
+  hair_color: string;
+  skin_color: string;
+  eye_color:  string;
+  birth_year: string;
+  gender:     string;
+  homeworld:  string;
+  films:      string[];
+  species:    any[];
+  vehicles:   string[];
+  starships:  string[];
+  created:    Date;
+  edited:     Date;
+  url:        string;
+  numImg?:    string;
 }
 
 @Injectable({
@@ -60,10 +81,14 @@ export class ServicioNavesService {
         this.listaNaves = this.listaNaves.concat(resp.results);
         this.paginas = resp.count / this.resultadosPagina   
         this.totalNaves = resp.count;   
-        console.log(this.paginas);
-        console.log(this.listaNaves);
+        //console.log(this.paginas);
+        //console.log(this.listaNaves);
         //this.listaNaves$.next(this.listaNaves);          
       });    
+  }
+
+  obtenerPiloto(url:string):Observable<Pilot>{
+    return this.http.get<Pilot>(url);      
   }
 
   nextPage() {
