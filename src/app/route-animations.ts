@@ -11,29 +11,21 @@ trigger('routeAnimations', [
         position: 'absolute',
         left: 0,
         width: '100%',
-        /*maxWidth: '1400px',
-        marginTop: '0',
-        marginRight: 'auto',
-        marginBottom: '0',
-        marginLeft: 'auto',*/
         opacity: 0,
-        //transform: 'scale(0) translateY(100%)',
-        //transform:'translateX(-10%)'
         transform: 'translateY(5%)'
       }),
     ]),
     // Animate the new page in
     query(':enter', [
-      //animate('400ms ease', style({ 
       animate('300ms ease-in-out', style({ 
         opacity: 1, 
         transform: 'translateY(0)'
-        //transform: 'scale(1) translateX(0)' 
       })),
     ])
   ]),
 ]);
 
+/*
 export const slider =
   trigger('routeAnimations', [
     transition('* => isLeft', slideTo('left') ),
@@ -71,3 +63,4 @@ function slideTo(direction:string) {
     // query(':enter', animateChild()),
   ];
 }
+*/
