@@ -7,9 +7,9 @@ import { LoginPageComponent } from './login/login-page/login-page.component';
 import { AuthGuardService } from './auth-guard.service';
 
 const routes: Routes = [
-  {path: '', component: HomePageComponent, pathMatch:'full'},
-  {path: 'naves',canActivate:[AuthGuardService], component:ListaNavesComponent},
-  {path: 'nave/:id',canActivate:[AuthGuardService], component: DetalleNaveComponent},
+  {path: '', component: HomePageComponent, pathMatch:'full', data: {animation: 'fader'}},
+  {path: 'naves',canActivate:[AuthGuardService], component:ListaNavesComponent, data: {animation: 'isRight'}},
+  {path: 'nave/:id',canActivate:[AuthGuardService], component: DetalleNaveComponent, data: {animation: 'isLeft'}},
   {path: 'login-page', component: LoginPageComponent},
   {path:'**', redirectTo: ''}
 
