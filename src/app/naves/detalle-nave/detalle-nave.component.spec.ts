@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DetalleNaveComponent } from './detalle-nave.component';
+import { ServicioNavesService } from '../servicio-naves.service';
+import { ActivatedRoute } from '@angular/router';
 
 describe('DetalleNaveComponent', () => {
   let component: DetalleNaveComponent;
@@ -8,7 +10,8 @@ describe('DetalleNaveComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DetalleNaveComponent ]
+      declarations: [ DetalleNaveComponent ],
+      providers: [ServicioNavesService, ActivatedRoute]
     })
     .compileComponents();
   });

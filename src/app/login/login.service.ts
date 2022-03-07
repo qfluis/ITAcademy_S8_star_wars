@@ -11,8 +11,8 @@ export interface User {
 export class LoginService {
 
   private userList: User[] = [];
-  //userLogedIn = false;
-  userLogedIn = true; //TODO
+  userLogedIn = false;
+  
   userLoged = "";
 
   constructor() {   
