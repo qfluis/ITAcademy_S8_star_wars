@@ -1,16 +1,18 @@
-import { TestBed } from '@angular/core/testing';
-
 import { AuthGuardService } from './auth-guard.service';
 
 describe('AuthGuardService', () => {
-  let service: AuthGuardService;
+  
+  let loginService: { userLogedIn: jasmine.Spy};
+  let router: { navigate: jasmine.Spy};
+  let service:AuthGuardService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(AuthGuardService);
+  beforeEach(()=>{
+    loginService = jasmine.createSpyObj('LoginService', ['get']);
+    router = jasmine.createSpyObj('Router',['navigate']);
+    service = new AuthGuardService(loginService as any, router as any);
   });
 
-  it('should be created', () => {
+  it("Shoult create",()=>{
     expect(service).toBeTruthy();
-  });
-});
+  }); 
+});    

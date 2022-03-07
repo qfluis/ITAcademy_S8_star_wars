@@ -11,8 +11,6 @@ import { fader } from './route-animations';
   ]
 })
 export class AppComponent {
-  title = 'starWars';
-
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }

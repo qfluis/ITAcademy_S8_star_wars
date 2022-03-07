@@ -33,6 +33,8 @@ export class LoginPageComponent implements OnInit {
 
   changeLoginMode(){
     this.loginMode = !this.loginMode;
+    this.txtFeedback.nativeElement.classList.add("display-none");
+    this.txtFeedback.nativeElement.innerHTML= '';
   }
 
   sendForm(values:any){
@@ -46,6 +48,7 @@ export class LoginPageComponent implements OnInit {
   createUser(user: string, pass: string){
     this.loginService.addUser(user , pass);
     this.loginForm.reset();
+    this.txtFeedback.nativeElement.classList.remove("display-none");
     this.txtFeedback.nativeElement.innerHTML = "Usuario creado con éxito, chequea tu email para confirmarlo.<br> Ya puedes hacer login."
     this.txtFeedback.nativeElement.classList.add("feedback--ok");
     this.txtFeedback.nativeElement.classList.remove("feedback--ko");
@@ -55,11 +58,13 @@ export class LoginPageComponent implements OnInit {
   async checkUser(user: string, pass: string) {
     const resultado:boolean = await this.loginService.checkUserAndPassword(user, pass);
     if(resultado){
+      this.txtFeedback.nativeElement.classList.remove("display-none");
       this.txtFeedback.nativeElement.innerHTML = "Usuario logeado correctamente";
       this.txtFeedback.nativeElement.classList.add("feedback--ok");
       this.txtFeedback.nativeElement.classList.remove("feedback--ko");
       this.route.navigate(['']);
     } else {
+      this.txtFeedback.nativeElement.classList.remove("display-none");
       this.txtFeedback.nativeElement.innerHTML = "Usuario y/o contraseña incorrectos";
       this.txtFeedback.nativeElement.classList.add("feedback--ko");
       this.txtFeedback.nativeElement.classList.remove("feedback--ok");
