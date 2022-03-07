@@ -1,6 +1,7 @@
-import { trigger, transition, style, query, group, animateChild,   
-    animate, keyframes } from '@angular/animations';
-
+//import { trigger, transition, style, query, group, animateChild,   
+//    animate, keyframes } from '@angular/animations';
+import { trigger, transition, style, query,    
+    animate } from '@angular/animations';
 
 export const fader =
 trigger('routeAnimations', [
@@ -13,15 +14,16 @@ trigger('routeAnimations', [
         width: '100%',
         opacity: 0,
         transform: 'translateY(5%)'
-      }),
-    ]),
+      }), 
+    ], {optional: true}),
     // Animate the new page in
     query(':enter', [
       animate('300ms ease-in-out', style({ 
         opacity: 1, 
         transform: 'translateY(0)'
       })),
-    ])
+    ], {optional: true} )
+
   ]),
 ]);
 
